@@ -1,0 +1,250 @@
+﻿continent;name;code
+Africa;Algeria;DZA
+Africa;Angola;AGO
+Africa;Benin;BEN
+Africa;Botswana;BWA
+Africa;BurkinaFaso;BFA
+Africa;Burundi;BDI
+Africa;Cameroon;CMR
+Africa;CapeVerde;CPV
+Africa;CentralAfricanRepublic;CAF
+Africa;Chad;TCD
+Africa;Comoros;COM
+Africa;Congo;COG
+Africa;Congo(theDemocraticRepublic);COD
+Africa;Côted'Ivoire;CIV
+Africa;Djibouti;DJI
+Africa;Egypt;EGY
+Africa;EquatorialGuinea;GNQ
+Africa;Eritrea;ERI
+Africa;Ethiopia;ETH
+Africa;Gabon;GAB
+Africa;Gambia;GMB
+Africa;Ghana;GHA
+Africa;Guinea;GIN
+Africa;Guinea-Bissau;GNB
+Africa;Kenya;KEN
+Africa;Lesotho;LSO
+Africa;Liberia;LBR
+Africa;LibyanArabJamahiriya;LBY
+Africa;Madagascar;MDG
+Africa;Malawi;MWI
+Africa;Mali;MLI
+Africa;Mauritania;MRT
+Africa;Mauritius;MUS
+Africa;Mayotte;MYT
+Africa;Morocco;MAR
+Africa;Mozambique;MOZ
+Africa;Namibia;NAM
+Africa;Niger;NER
+Africa;Nigeria;NGA
+Africa;Réunion;REU
+Africa;Rwanda;RWA
+Africa;SaintHelena;SHN
+Africa;SaoTomeandPrincipe;STP
+Africa;Senegal;SEN
+Africa;Seychelles;SYC
+Africa;SierraLeone;SLE
+Africa;Somalia;SOM
+Africa;SouthAfrica;ZAF
+Africa;SouthSudan;SSD
+Africa;Sudan;SDN
+Africa;Swaziland;SWZ
+Africa;Tanzania-UnitedRepublicof;TZA
+Africa;Togo;TGO
+Africa;Tunisia;TUN
+Africa;Uganda;UGA
+Africa;WesternSahara;ESH
+Africa;Zambia;ZMB
+Africa;Zimbabwe;ZWE
+Antarctica North;Antarctica;ATA
+Antarctica North;BouvetIsland;BVT
+Antarctica North;FrenchSouthernTerritories;ATF
+Antarctica North;HeardIslandandMcDonaldIslands;HMD
+Antarctica North;SouthGeorgiaandtheSouthSandwichIslands;SGS
+Asia;Afghanistan;AFG
+Asia;Armenia;ARM
+Asia;Azerbaijan;AZE
+Asia;Bahrain;BHR
+Asia;Bangladesh;BGD
+Asia;Bhutan;BTN
+Asia;BritishIndianOceanTerritory;IOT
+Asia;BruneiDarussalam;BRN
+Asia;Cambodia;KHM
+Asia;China;CHN
+Asia;ChristmasIsland;CXR
+Asia;Cocos(Keeling)Islands;CCK
+Asia;Cyprus;CYP
+Asia;Georgia;GEO
+Asia;HongKong;HKG
+Asia;India;IND
+Asia;Indonesia;IDN
+Asia;Iran-IslamicRepublicof;IRN
+Asia;Iraq;IRQ
+Asia;Israel;ISR
+Asia;Japan;JPN
+Asia;Jordan;JOR
+Asia;Kazakhstan;KAZ
+Asia;Korea-DemocraticPeople'sRepublicof;PRK
+Asia;Korea-Republicof;KOR
+Asia;Kuwait;KWT
+Asia;Kyrgyzstan;KGZ
+Asia;LaoPeople'sDemocraticRepublic;LAO
+Asia;Lebanon;LBN
+Asia;Macao;MAC
+Asia;Malaysia;MYS
+Asia;Maldives;MDV
+Asia;Mongolia;MNG
+Asia;Myanmar;MMR
+Asia;Nepal;NPL
+Asia;Oman;OMN
+Asia;Pakistan;PAK
+Asia;PalestinianTerritory-Occupied;PSE
+Asia;Philippines;PHL
+Asia;Qatar;QAT
+Asia;SaudiArabia;SAU
+Asia;Singapore;SGP
+Asia;SriLanka;LKA
+Asia;SyrianArabRepublic;SYR
+Asia;Taiwan-ProvinceofChina;TWN
+Asia;Tajikistan;TJK
+Asia;Thailand;THA
+Asia;Timor-Leste;TLS
+Asia;Turkmenistan;TKM
+Asia;UnitedArabEmirates;ARE
+Asia;Uzbekistan;UZB
+Asia;Vietnam;VNM
+Asia;Yemen;YEM
+Europe;ÅlandIslands;ALA
+Europe;Albania;ALB
+Europe;Andorra;AND
+Europe;Austria;AUT
+Europe;Belarus;BLR
+Europe;Belgium;BEL
+Europe;BosniaandHerzegovina;BIH
+Europe;Bulgaria;BGR
+Europe;Croatia;HRV
+Europe;CzechRepublic;CZE
+Europe;Denmark;DNK
+Europe;Estonia;EST
+Europe;FaroeIslands;FRO
+Europe;Finland;FIN
+Europe;France;FRA
+Europe;Germany;DEU
+Europe;Gibraltar;GIB
+Europe;Greece;GRC
+Europe;Guernsey;GGY
+Europe;HolySee(VaticanCityState);VAT
+Europe;Hungary;HUN
+Europe;Iceland;ISL
+Europe;Ireland;IRL
+Europe;IsleofMan;IMN
+Europe;Italy;ITA
+Europe;Jersey;JEY
+Europe;Latvia;LVA
+Europe;Liechtenstein;LIE
+Europe;Lithuania;LTU
+Europe;Luxembourg;LUX
+Europe;Macedonia-theFormerYugoslavRepublicof;MKD
+Europe;Malta;MLT
+Europe;Moldova-Republicof;MDA
+Europe;Monaco;MCO
+Europe;Montenegro;MNE
+Europe;Netherlands;NLD
+Europe;Norway;NOR
+Europe;Poland;POL
+Europe;Portugal;PRT
+Europe;Romania;ROU
+Europe;RussianFederation;RUS
+Europe;SanMarino;SMR
+Europe;Serbia;SRB
+Europe;Slovakia;SVK
+Europe;Slovenia;SVN
+Europe;Spain;ESP
+Europe;SvalbardandJanMayen;SJM
+Europe;Sweden;SWE
+Europe;Switzerland;CHE
+Europe;Turkey;TUR
+Europe;Ukraine;UKR
+Europe;UnitedKingdom;GBR
+North America;Anguilla;AIA
+North America;AntiguaandBarbuda;ATG
+North America;Aruba;ABW
+North America;Bahamas;BHS
+North America;Barbados;BRB
+North America;Belize;BLZ
+North America;Bermuda;BMU
+North America;Bonaire-SintEustatiusandSaba;BES
+North America;Canada;CAN
+North America;CaymanIslands;CYM
+North America;CostaRica;CRI
+North America;Cuba;CUB
+North America;Curaçao;CUW
+North America;Dominica;DMA
+North America;DominicanRepublic;DOM
+North America;ElSalvador;SLV
+North America;Greenland;GRL
+North America;Grenada;GRD
+North America;Guadeloupe;GLP
+North America;Guatemala;GTM
+North America;Haiti;HTI
+North America;Honduras;HND
+North America;Jamaica;JAM
+North America;Martinique;MTQ
+North America;Mexico;MEX
+North America;Montserrat;MSR
+North America;Nicaragua;NIC
+North America;Panama;PAN
+North America;PuertoRico;PRI
+North America;SaintBarthélemy;BLM
+North America;SaintKittsandNevis;KNA
+North America;SaintLucia;LCA
+North America;SaintMartin(Frenchpart);MAF
+North America;SaintPierreandMiquelon;SPM
+North America;SaintVincentandtheGrenadines;VCT
+North America;SintMaarten(Dutchpart);SXM
+North America;TrinidadandTobago;TTO
+North America;TurksandCaicosIslands;TCA
+North America;UnitedStates;USA
+North America;VirginIslands-British;VGB
+North America;VirginIslands-U.S.;VIR
+Oceania;AmericanSamoa;ASM
+Oceania;Australia;AUS
+Oceania;CookIslands;COK
+Oceania;Fiji;FJI
+Oceania;FrenchPolynesia;PYF
+Oceania;Guam;GUM
+Oceania;Kiribati;KIR
+Oceania;MarshallIslands;MHL
+Oceania;Micronesia-FederatedStatesof;FSM
+Oceania;Nauru;NRU
+Oceania;NewCaledonia;NCL
+Oceania;NewZealand;NZL
+Oceania;Niue;NIU
+Oceania;NorfolkIsland;NFK
+Oceania;NorthernMarianaIslands;MNP
+Oceania;Palau;PLW
+Oceania;PapuaNewGuinea;PNG
+Oceania;Pitcairn;PCN
+Oceania;Samoa;WSM
+Oceania;SolomonIslands;SLB
+Oceania;Tokelau;TKL
+Oceania;Tonga;TON
+Oceania;Tuvalu;TUV
+Oceania;UnitedStatesMinorOutlyingIslands;UMI
+Oceania;Vanuatu;VUT
+Oceania;WallisandFutuna;WLF
+South America;Argentina;ARG
+South America;Bolivia;BOL
+South America;Brazil;BRA
+South America;Chile;CHL
+South America;Colombia;COL
+South America;Ecuador;ECU
+South America;FalklandIslands(Malvinas);FLK
+South America;FrenchGuiana;GUF
+South America;Guyana;GUY
+South America;Paraguay;PRY
+South America;Peru;PER
+South America;Suriname;SUR
+South America;Uruguay;URY
+South America;Venezuela;VEN
