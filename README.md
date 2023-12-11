@@ -32,10 +32,10 @@ This is an experimental project!! The main objective of this project is to creat
 
 ## How to run
 
-1.Clone this project
-2.Run your python kernel
-3.Install all the libraries above
-4.Run `main.py` through the streamlit command `streamlit run main.py`
+1. Clone this project 
+2. Run your python kernel
+3. Install all the libraries above
+4. Run `main.py` through the streamlit command `streamlit run main.py`
 
 ## Disclaiming
 
