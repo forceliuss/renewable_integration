@@ -9,6 +9,7 @@ import numpy as np
 
 ######## Cleaning the Renewable Energy database
 def renw_clean():
+    
     #Inputing the data
     df = pd.read_csv('./data/renewable_energy.csv')
 
@@ -53,7 +54,10 @@ def renw_clean():
 
 ######## Cleaning the GDP database
 def gdp_clean():
+    
+    #Inputing the data
     df = pd.read_csv('.\data\gdp_data.csv')
+    
     df = df.sort_values('year')
     df = df[df['year'] <= 2015]
     df = df[['country_code','year','value']]
@@ -69,3 +73,21 @@ def gdp_clean():
     gpd_df = gpd_df[['cntry_code','cntry_name','cntry_region','year','gdp']]
     
     return gpd_df
+
+def oil_clean():
+    
+    #Inputing the data
+    df = pd.read_csv('.\data\oilprice_data.csv')
+
+    #Rename the columns
+    df = df.rename(columns={'Date' : 'date','Price':'oil_price'})
+    
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df = df[df['year']<=2015]
+    
+    df_oil = df[['year','oil_price']]
+    df_oil = df_oil.groupby('year').mean()
+    df_oil = df_oil.reset_index()
+    
+    return df_oil
