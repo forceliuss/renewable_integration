@@ -9,14 +9,14 @@ import numpy as np
 ######## Creating the country database
 def cntry():
     #Import country names, codes and regions
-    df_countries = pd.read_csv('./data/cntry_database.csv', sep=';')
-    df_countries = df_countries.rename(columns={'continent' : 'cntry_region','name':'cntry_name','code':'cntry_code'})
+    df = pd.read_csv('./data/cntry_database.csv', sep=';')
+    df = df.rename(columns={'continent' : 'cntry_region','name':'cntry_name','code':'cntry_code'})
     
     #Cleaning the countries dataframe, exclusing the antarctic regions
-    df_countries = df_countries[df_countries['cntry_region']!='Antarctica North']
-    df_countries = df_countries.sort_values('cntry_name')
+    cntry_df = df[df['cntry_region']!='Antarctica North']
+    cntry_df = cntry_df.sort_values('cntry_name')
     
-    return df_countries
+    return cntry_df
 
 
 ######## Cleaning the Renewable Energy database
@@ -44,26 +44,27 @@ def renw(file):
     dfl = dfl.drop(columns=['flag_codes'])
 
     #Create the countries dataframe
-    df_countries = cntry()
+    cntry_df = cntry()
 
     #Merging the DF to have the countries names on my DF
-    merged_df = pd.merge(dfl, df_countries, left_on='location', right_on='cntry_code', how='left')
+    merged_df = pd.merge(dfl, cntry_df, left_on='location', right_on='cntry_code', how='left')
 
     #Cleaning the general values such as World; G20 and European Union
     codes_drop = ['WLD','EU28','OECD','G20','OEU']
     merged_df = merged_df[~merged_df['location'].isin(codes_drop)]
 
     #Reorganizing the dataframe
-    merged_df = merged_df[['time','year','cntry_code','cntry_name','cntry_region','measure','subject','value']]
+    merged_df = merged_df[['time','year','cntry_code','cntry_name','cntry_region','value']]
 
     #Categorizing the location by continent
     reg_cont = ['Africa', 'Asia', 'Europe', 'North America', 'Oceania', 'South America']
     reg_type = CategoricalDtype(categories=reg_cont, ordered=False)
     merged_df['cntry_region'] = merged_df['cntry_region'].astype(reg_type)
     
-    merged_df = merged_df[(merged_df['year'] >= start_date)&(merged_df['year'] <= end_date)]
+    #Filtering the dates
+    renw_df = merged_df[(merged_df['year'] >= start_date)&(merged_df['year'] <= end_date)]
     
-    return merged_df
+    return renw_df
 
 
 ######## Cleaning the GDP database
@@ -81,13 +82,13 @@ def gdp(file):
     df = df[['country_code','year','value']]
 
     #Create the countries dataframe
-    df_countries = cntry()
+    cntry_df = cntry()
 
     df = df.rename(columns={'country_code':'cntry_code','year':'year','value':'gdp'})
     df['gdp'] = df['gdp'] #GDP in dollars (USD)
-    gpd_df = df[df['cntry_code'].isin(df_countries['cntry_code'].unique())]
+    gpd_df = df[df['cntry_code'].isin(cntry_df['cntry_code'].unique())]
 
-    gpd_df = gpd_df.merge(df_countries, how='inner')
+    gpd_df = gpd_df.merge(cntry_df, how='inner')
     gpd_df = gpd_df[['cntry_code','cntry_name','cntry_region','year','gdp']]
     
     return gpd_df
@@ -106,10 +107,10 @@ def oil(file):
     
     df['date'] = pd.to_datetime(df['date'])
     df['year'] = df['date'].dt.year
-    df = df[(df['year'] >= start_date)&(df['year'] <= end_date)]
+    df = df[(df['year'] >= start_date) & (df['year'] <= end_date)]
     
-    df_oil = df[['year','oil_price']]
-    df_oil = df_oil.groupby('year').mean()
-    df_oil = df_oil.reset_index()
+    oil_df = df[['year','oil_price']]
+    oil_df = oil_df.groupby('year').mean()
+    oil_df = oil_df.reset_index()
     
-    return df_oil
+    return oil_df
