@@ -100,25 +100,3 @@ def gdp(file):
     gpd_df = gpd_df[['cntry_code','cntry_name','cntry_region','year','gdp']]
     
     return gpd_df
-
-def oil(file):
-    
-    #Narrowing the time series to 25 year long
-    start_date = 1990
-    end_date = 2015
-    
-    #Inputing the data
-    df = pd.read_csv(file)
-
-    #Rename the columns
-    df = df.rename(columns={'Date' : 'date','Price':'oil_price'})
-    
-    df['date'] = pd.to_datetime(df['date'])
-    df['year'] = df['date'].dt.year
-    df = df[(df['year'] >= start_date) & (df['year'] <= end_date)]
-    
-    oil_df = df[['year','oil_price']]
-    oil_df = oil_df.groupby('year').mean()
-    oil_df = oil_df.reset_index()
-    
-    return oil_df

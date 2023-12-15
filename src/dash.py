@@ -25,7 +25,6 @@ st.sidebar.title('Select Country')
 #Calling the merged_df
 renw = renw('./data/renewable_energy.csv')
 gdp = gdp('./data/gdp_data.csv')
-oil = oil('./data/oilprice_data.csv')
 
 #Merging Renewable and GDP
 merged_df = pd.merge(renw,gdp, how='inner')\
