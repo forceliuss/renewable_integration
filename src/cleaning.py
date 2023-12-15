@@ -6,6 +6,10 @@ warnings.filterwarnings('ignore')
 
 import numpy as np
 
+# 1 toe = 11.63 (MWh) = 7.33 (Barrels of oil equivalent)
+# 1 Ktoe = 1.163 (GWh) 
+# 1 Ktoe = 7330 (Barrels of oil equivalent) 
+
 ######## Creating the country database
 def cntry():
     #Import country names, codes and regions
@@ -25,12 +29,15 @@ def renw(file):
     start_date = 1990
     end_date = 2015
     
+    #Converting to GWh
+    ktoe_gwh = 0.1163
+    
     #Inputing the data
     df = pd.read_csv(file)
 
     #First Formating and Cleanup
     df = df.rename(str.lower, axis='columns')
-    df = df.rename(columns={'flag codes' : 'flag_codes'})
+    df = df.rename(columns={'flag codes' : 'flag_codes', 'value':'value_ktoe'})
     df = df.fillna(0)
 
     df['time'] = pd.to_datetime(df['time'], format="%Y")
@@ -54,7 +61,8 @@ def renw(file):
     merged_df = merged_df[~merged_df['location'].isin(codes_drop)]
 
     #Reorganizing the dataframe
-    merged_df = merged_df[['time','year','cntry_code','cntry_name','cntry_region','value']]
+    merged_df['value_gwh'] = merged_df['value_ktoe']*ktoe_gwh
+    merged_df = merged_df[['time','year','cntry_code','cntry_name','cntry_region','value_ktoe','value_gwh']]
 
     #Categorizing the location by continent
     reg_cont = ['Africa', 'Asia', 'Europe', 'North America', 'Oceania', 'South America']

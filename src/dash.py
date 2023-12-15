@@ -38,13 +38,17 @@ merged_df = merged_df.sort_values('cntry_region')
 
 cntry_reg = st.sidebar.selectbox("Continent:",merged_df['cntry_region'].unique())
 
-df_c = merged_df[merged_df['cntry_region'] == cntry_reg] 
+df_c = merged_df.query(
+    'cntry_region == @cntry_reg'
+) 
 df_c = df_c.sort_values('cntry_name')
 
 #Selecting the country
 cntry = st.sidebar.selectbox("Country:",df_c['cntry_name'].unique())
 
-df_selection = df_c[df_c['cntry_name'] == cntry]
+df_selection = df_c.query(
+    'cntry_name == @cntry'
+)
 df_selection = df_selection.sort_values('year')
 
 #Time Range
@@ -56,53 +60,86 @@ time_range = st.sidebar.slider(
 df_selection = df_selection[(df_selection['year'] >= time_range[0])&(df_selection['year'] <= time_range[1])]
 renw = renw[(renw['year'] >= time_range[0])&(renw['year'] <= time_range[1])]
 
+#Convert the KToe units to GWh
+on = st.sidebar.toggle('Convert to GWh')
+
+if on: #Units in GWh
+    units_total = 'GWh'
+    units_aver = 'GWh'
+    df_selection = df_selection[['year','cntry_code','cntry_name','cntry_region','value_gwh','gdp']]\
+        .rename(columns={'value_gwh':'value'})
+    
+else: #Units in Ktoe
+    units_total = 'Ktoe'
+    units_aver = 'Ktoe'
+    df_selection = df_selection[['year','cntry_code','cntry_name','cntry_region','value_ktoe','gdp']]\
+        .rename(columns={'value_ktoe':'value'})
+
 st.title(":bar_chart: Renewable Integration Dashboard")
 st.markdown("###")
+
+st.caption('Renewables include the primary energy equivalent of hydro (excluding pumped storage), geothermal, solar, wind, tide and wave sources. Energy derived from solid biofuels, biogasoline, biodiesels, other liquid biofuels, biogases and the renewable fraction of municipal waste are also included.\n This indicator is measured in thousand toe (tonne of oil equivalent) as well as in percentage of total primary energy supply.')
 
 ################# Section 1 - Metrics
 
 sec_1 = st.container()
 sec_1.subheader(cntry, divider='grey')
 
+
 #Page layout
 col1, col2, col3 = sec_1.columns(3, gap='large')
 
 #KPIs
 
-total_production = round(df_selection['value'].sum()/1000,3)
-average_renw = round(df_selection['value'].mean(),2)
-std_renw = round(df_selection['value'].std(),2)
+total_renw = df_selection['value'].sum()
+average_renw = df_selection['value'].mean()
+std_renw = df_selection['value'].std()
 delta_renw = round(std_renw / average_renw,2)
 
 #Ranking
-renw['value'] = round(renw['value'],2)
-df_ranking = renw[['cntry_name','value']]
+df_ranking = renw[['cntry_name','value_ktoe']]
 df_ranking = df_ranking.groupby(by=['cntry_name']).sum()\
-    .sort_values('value', ascending=False)
-df_ranking['ranking'] = range(1, len(df_ranking['value']) + 1)
+    .sort_values('value_ktoe', ascending=False)
+df_ranking['ranking'] = range(1, len(df_ranking['value_ktoe']) + 1)
 
 world_ranking = df_ranking.query(
     'cntry_name == @cntry'
 )
 
+#Converting scale of units
+
+
+if total_renw >= 1000:
+    total_renw = total_renw/1000
+    if on:
+        units_total = 'TWh'
+    else:
+        units_total = 'Mtoe'
+
+if average_renw >= 1000:
+    average_renw = average_renw/1000
+    if on:
+        units_aver = 'TWh'
+    else:
+        units_aver = 'Mtoe'
+
+
 #Printing KPI
 
 col1.metric(
     label="Average Production:",
-    value='%s Ktoe'%average_renw,
+    value=f'{round(average_renw,1)} {units_aver}',
     delta=delta_renw,
-    help='Ktoe - kilo ton of oil equivalent'
 )
 
 col2.metric(
     label="Total Production:",
-    value='%s Mtoe'%total_production,
-    help='Mtoe - Mega ton of oil equivalent'
+    value=f'{round(total_renw,1)} {units_total}',
 )
 
 col3.metric(
     label=":star2: World Ranking:",
-    value='%iº' %world_ranking['ranking'].values[0]
+    value=f"{world_ranking['ranking'].values[0]}º"
 )
 
 ################# Section 2 - Charts
@@ -119,7 +156,7 @@ fig_total = px.bar(
     title=f'Renewable Production ({time_range[0]} - {time_range[1]})',
     labels={
         'year':'Year',
-        'value':'Kton Oil Equivalent (Ktoe)' 
+        'value':f'Energy Production ({units_total})'
     }
 )
 col3.plotly_chart(
