@@ -3,6 +3,9 @@
 
 This is an experimental project!! The main objective of this project is to create a dashboard to analyze the data from several sources and develop a common place for these insights. This project gets most of the datasets from Kaggle. (links below)
 
+![image](https://github.com/forceliuss/renewable_integration/assets/72661072/69a730f8-d56c-43ae-84e6-6d45ec5d27dc)
+
+
 ## Datasets
 
 * Renewable Energy (1960 - 2023) - main source (https://www.oecd-ilibrary.org/energy/renewable-energy/indicator/english_aac7c3f1-en)
